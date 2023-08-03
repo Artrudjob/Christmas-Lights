@@ -42,6 +42,7 @@ function createLightbulbs(width: number, arr: ILightBulbs[]) {
       const wireElement = document.createElement("div");
       const holderElement = document.createElement("div");
       const circleElement = document.createElement("div");
+
       if (index % 2 === 0) {
         boxLightBuildElement.classList.add("header__boxLightBuild");
         wireElement.classList.add("header__wire");
@@ -67,6 +68,7 @@ function createLightbulbs(width: number, arr: ILightBulbs[]) {
         boxLightBuildElement.append(circleElement);
       }
     });
+  
     i++;
   };
 };
