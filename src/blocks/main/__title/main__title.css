@@ -2,3 +2,15 @@
   font-size: 8em;
   color: rgb(30,119,109);
 }
+
+@media screen and (max-width: 1024px) {
+  .main__title {
+    font-size: 6em;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .main__title {
+    font-size: 4em;
+  }
+}
