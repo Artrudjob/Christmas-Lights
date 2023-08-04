@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+var createLightbulbsElements_js_1 = require("../../utils/createLightbulbsElements.js");
 var lightBulbs = [
     {
         id: 0,
@@ -29,42 +30,53 @@ var lightBulbs = [
 ];
 var headerElement = document.querySelector("header");
 var widthPage = document.documentElement.clientWidth;
-function createLightbulbs(width, arr) {
-    var countLightBulbs = Math.floor((width / 50) / arr.length);
-    var i = 0;
-    while (i < countLightBulbs) {
-        arr.forEach(function (el, index) {
-            var boxLightBuildElement = document.createElement("div");
-            var wireElement = document.createElement("div");
-            var holderElement = document.createElement("div");
-            var circleElement = document.createElement("div");
-            if (index % 2 === 0) {
-                boxLightBuildElement.classList.add("header__boxLightBuild");
-                wireElement.classList.add("header__wire");
-                wireElement.classList.add("header__wire_long");
-                holderElement.classList.add("header__holder");
-                circleElement.classList.add("header__circle");
-                circleElement.style.backgroundColor = el.color;
-                headerElement === null || headerElement === void 0 ? void 0 : headerElement.prepend(boxLightBuildElement);
-                boxLightBuildElement.append(wireElement);
-                boxLightBuildElement.append(holderElement);
-                boxLightBuildElement.append(circleElement);
-            }
-            else {
-                boxLightBuildElement.classList.add("header__boxLightBuild");
-                wireElement.classList.add("header__wire");
-                holderElement.classList.add("header__holder");
-                circleElement.classList.add("header__circle");
-                circleElement.style.backgroundColor = el.color;
-                headerElement === null || headerElement === void 0 ? void 0 : headerElement.prepend(boxLightBuildElement);
-                boxLightBuildElement.append(wireElement);
-                boxLightBuildElement.append(holderElement);
-                boxLightBuildElement.append(circleElement);
-            }
-        });
-        i++;
+// function createLightbulbsElements(width: number, arr: ILightBulbs[]) {
+//   const countLightBulbs = Math.floor((width / 50) / arr.length);
+//   let i = 0;
+//   while(i < countLightBulbs) {
+//     arr.forEach((el, index) => {
+//       const boxLightBuildElement = document.createElement("div");
+//       const wireElement = document.createElement("div");
+//       const holderElement = document.createElement("div");
+//       const circleElement = document.createElement("div");
+//       if (index % 2 === 0) {
+//         boxLightBuildElement.classList.add("header__boxLightBuild");
+//         wireElement.classList.add("header__wire");
+//         wireElement.classList.add("header__wire_long");
+//         holderElement.classList.add("header__holder");
+//         circleElement.classList.add("header__circle");
+//         circleElement.style.backgroundColor = el.color;
+//         headerElement?.prepend(boxLightBuildElement);
+//         boxLightBuildElement.append(wireElement);
+//         boxLightBuildElement.append(holderElement);
+//         boxLightBuildElement.append(circleElement);
+//       } else {
+//         boxLightBuildElement.classList.add("header__boxLightBuild");
+//         wireElement.classList.add("header__wire");
+//         holderElement.classList.add("header__holder");
+//         circleElement.classList.add("header__circle");
+//         circleElement.style.backgroundColor = el.color;
+//         headerElement?.prepend(boxLightBuildElement);
+//         boxLightBuildElement.append(wireElement);
+//         boxLightBuildElement.append(holderElement);
+//         boxLightBuildElement.append(circleElement);
+//       }
+//     });
+//     i++;
+//   };
+// };
+(0, createLightbulbsElements_js_1.createLightbulbsElements)(widthPage, lightBulbs, headerElement);
+function removeChilds(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
     ;
 }
 ;
-createLightbulbs(widthPage, lightBulbs);
+window.addEventListener("resize", function () {
+    var currentWithPage = document.documentElement.clientWidth;
+    if (headerElement !== null) {
+        removeChilds(headerElement);
+        (0, createLightbulbsElements_js_1.createLightbulbsElements)(currentWithPage, lightBulbs, headerElement);
+    }
+});
