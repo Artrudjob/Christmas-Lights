@@ -5,6 +5,9 @@
 @import url(./blocks/header/__holder/header__holder.css);
 @import url(./blocks/header/__circle/header__circle.css);
 
+@import url(./blocks/main/main.css);
+@import url(./blocks/main/__title/main__title.css);
+
 body {
   margin: 0;
   background-color: rgb(50,36,61);
